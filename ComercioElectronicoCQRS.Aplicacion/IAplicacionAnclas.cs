@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominio.Querys.Productos
+namespace ComercioElectronicoCQRS.Aplicacion
 {
-    public class ObtenerProductosQuery
+    public interface IAplicacionAnclas
     {
     }
 }

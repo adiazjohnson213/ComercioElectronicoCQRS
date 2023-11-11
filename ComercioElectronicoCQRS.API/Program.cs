@@ -1,4 +1,8 @@
-using Infraestructura;
+using ComercioElectronicoCQRS.Aplicacion;
+using ComercioElectronicoCQRS.Dominio.Repositorios;
+using ComercioElectronicoCQRS.Dominio.Servicios;
+using ComercioElectronicoCQRS.Infraestructura;
+using ComercioElectronicoCQRS.Infraestructura.Repositorios;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +16,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ComercioElectronicoContext>(dbContextOptions =>
         dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("ComercioElectronicoCQRSConnectionString")));
+builder.Services.AddTransient<IServicioProducto, ServicioProducto>();
+builder.Services.AddTransient<IProductoRepositorio, ProductosRepositorio>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(IAplicacionAnclas).Assembly));
 
 var app = builder.Build();
 
