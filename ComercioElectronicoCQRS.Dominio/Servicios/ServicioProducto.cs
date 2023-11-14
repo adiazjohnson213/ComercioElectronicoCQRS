@@ -16,7 +16,7 @@ namespace ComercioElectronicoCQRS.Dominio.Servicios
         public async Task<IEnumerable<ProdutoDTO>> ObtenerProductos()
         {
             var productos = await _productoRepositorio.ObtenerProductos();
-            return productos.Select(p => new ProdutoDTO { Nombre = p.Nombre, Descripcion = p.Descripcion });
+            return productos.Select(p => new ProdutoDTO { Id = p.Id, Nombre = p.Nombre, Descripcion = p.Descripcion });
         }
 
         public async Task RegistrarProducto(Producto producto)

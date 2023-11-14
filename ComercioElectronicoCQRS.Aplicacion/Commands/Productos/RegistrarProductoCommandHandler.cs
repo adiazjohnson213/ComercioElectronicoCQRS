@@ -14,7 +14,7 @@ namespace ComercioElectronicoCQRS.Aplicacion.Commands.Productos
         }
         public async Task Handle(RegistrarProductoCommand request, CancellationToken cancellationToken)
         {
-            await _servicioProducto.RegistrarProducto(new Producto { Nombre = request.Nombre, Descripcion = request.Descripcion });
+            await _servicioProducto.RegistrarProducto(new Producto { Nombre = request.Nombre, Descripcion = request.Descripcion, Precio = request.Precio });
         }
     }
 }

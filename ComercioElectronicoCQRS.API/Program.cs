@@ -17,7 +17,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ComercioElectronicoContext>(dbContextOptions =>
         dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("ComercioElectronicoCQRSConnectionString")));
 builder.Services.AddTransient<IServicioProducto, ServicioProducto>();
+builder.Services.AddTransient<ICompraServicio, CompraServicio>();
+builder.Services.AddTransient<IClienteServicio, ClienteServicio>();
 builder.Services.AddTransient<IProductoRepositorio, ProductosRepositorio>();
+builder.Services.AddTransient<ICompraRepositorio, CompraRepositorio>();
+builder.Services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(IAplicacionAnclas).Assembly));
 
 var app = builder.Build();

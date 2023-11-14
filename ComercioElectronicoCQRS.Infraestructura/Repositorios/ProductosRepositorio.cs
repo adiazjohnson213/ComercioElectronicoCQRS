@@ -18,6 +18,8 @@ namespace ComercioElectronicoCQRS.Infraestructura.Repositorios
             return await _comercioElectronicoContext.Productos.ToListAsync();
         }
 
+        public async Task<Producto> ObtenerProducto(int id) => await _comercioElectronicoContext.Productos.FirstOrDefaultAsync(p => p.Id == id);
+
         public async Task AgregarProducto(Producto producto)
         {
             await _comercioElectronicoContext.Productos.AddAsync(producto);
